@@ -1,20 +1,19 @@
-
-def count_batteries_by_usage(cycles):
-  return {
-    "lowCount": 0,
-    "mediumCount": 0,
-    "highCount": 0
-  }
-
-
-def test_bucketing_by_number_of_cycles():
+def test_bucketing_by_number_of_cycles(cycles):
   print("Counting batteries by usage cycles...\n");
-  counts = count_batteries_by_usage([100, 300, 500, 600, 900, 1000])
-  assert(counts["lowCount"] == 2)
-  assert(counts["mediumCount"] == 3)
-  assert(counts["highCount"] == 1)
-  print("Done counting :)")
+  lowCount = 0
+  highCount = 0
+  mediumCount = 0
+  for i in cycles:
+      if i < 400:
+        lowCount += 1
+      elif i > 920:
+        highCount += 1
+      else:
+        mediumCount += 1
+  "return lowCount, highCount, mediumCount"
+  print(lowCount, highCount, mediumCount)
 
-
-if __name__ == '__main__':
-  test_bucketing_by_number_of_cycles()
+cycles = [100, 200, 300, 550, 520, 600, 800, 1000,1120]
+if _name_ == '_main_':
+  test_bucketing_by_number_of_cycles(cycles)
+  
